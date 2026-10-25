@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div>
           <h1 className="match-title">Vidya Valley School</h1>
           <p style={{ fontSize: '0.75rem', color: 'var(--orange)', fontWeight: 700 }}>
-            U-16 NATIONAL BASKETBALL TOURNAMENT
+            41st NATIONAL BASKETBALL CHAMPIONSHIP
           </p>
         </div>
       </div>
