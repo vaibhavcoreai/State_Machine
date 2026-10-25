@@ -1,0 +1,306 @@
+/* Design tokens and styles matching design.md */
+:root {
+  --navy: #0B2545;
+  --orange: #F28C28;
+  --bg: #F4F7FB;
+  --card-border: #D9E2EC;
+  --text-main: #102A43;
+  --text-muted: #627D98;
+  --error: #D64550;
+  --success: #1E9E4A;
+  --team-a-blue: #1F5FBF;
+  --team-b-red: #D64550;
+
+  /* Stat column tints */
+  --tint-pts: #E6F4EA;
+  --tint-ast: #FFE8D6;
+  --tint-fls: #EDE7F6;
+  --tint-shooting: #FEF9C3;
+  --tint-stl-reb-to: #E0F2FE;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+}
+
+/* Tabular numbers for clean stats display */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Header styles */
+.match-header {
+  background-color: var(--navy);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.match-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.match-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.match-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.meta-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.meta-field label {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.meta-field input, .meta-field select {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Scoreboard */
+.scoreboard-bar {
+  background: #ffffff;
+  border-bottom: 2px solid var(--card-border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.scoreboard-team {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.team-shield {
+  width: 36px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+}
+
+.team-shield.team-a {
+  background: var(--team-a-blue);
+}
+
+.team-shield.team-b {
+  background: var(--team-b-red);
+}
+
+.score-display {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--navy);
+  min-width: 60px;
+  text-align: center;
+}
+
+.quarter-toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.quarter-toggle-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.quarter-toggles {
+  display: flex;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.quarter-btn {
+  background: #ffffff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-main);
+  border-right: 1px solid var(--card-border);
+}
+
+.quarter-btn:last-child {
+  border-right: none;
+}
+
+.quarter-btn.active {
+  background: var(--orange);
+  color: #ffffff;
+}
+
+/* Stat Tables */
+.scoresheet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+@media (max-width: 1200px) {
+  .scoresheet-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-table-card {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.team-table-header {
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.team-table-header.team-a {
+  border-top: 4px solid var(--team-a-blue);
+}
+
+.team-table-header.team-b {
+  border-top: 4px solid var(--team-b-red);
+}
+
+.stat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.stat-table th {
+  background: #F8FAFC;
+  padding: 0.5rem 0.25rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--card-border);
+  border-right: 1px solid #E2E8F0;
+  color: var(--text-main);
+}
+
+.stat-table td {
+  padding: 0.4rem 0.25rem;
+  border-bottom: 1px solid #E2E8F0;
+  border-right: 1px solid #E2E8F0;
+  vertical-align: middle;
+}
+
+.stat-table tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* Tinted columns */
+.cell-pts { background-color: var(--tint-pts); font-weight: 700; color: #166534; }
+.cell-ast { background-color: var(--tint-ast); }
+.cell-fls { background-color: var(--tint-fls); }
+.cell-ft  { background-color: var(--tint-shooting); }
+.cell-fg  { background-color: var(--tint-shooting); }
+.cell-3p  { background-color: var(--tint-shooting); }
+.cell-stl { background-color: var(--tint-stl-reb-to); }
+.cell-reb { background-color: var(--tint-stl-reb-to); }
+.cell-to  { background-color: var(--tint-stl-reb-to); }
+
+/* Compact inputs for M/A */
+.ma-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.stat-input-small {
+  width: 28px;
+  height: 24px;
+  text-align: center;
+  font-size: 0.82rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 3px;
+  padding: 0;
+}
+
+.stat-input-single {
+  width: 34px;
+  height: 24px;
+  text-align: center;
+  font-size: 0.82rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 3px;
+  padding: 0;
+}
+
+/* Footer bar */
+.scoresheet-footer {
+  background: #ffffff;
+  border-top: 1px solid var(--card-border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.03);
+}
+
+.status-chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-chip.saved { background: #DCFCE7; color: #166534; }
+.status-chip.unsaved { background: #FEF3C7; color: #92400E; }
+.status-chip.error { background: #FEE2E2; color: #991B1B; }

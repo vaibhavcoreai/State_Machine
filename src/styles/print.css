@@ -1,0 +1,103 @@
+/* print.css — A4 landscape team report and scoresheet printing */
+
+@page {
+  size: A4 landscape;
+  margin: 8mm;
+}
+
+@media print {
+  /* Hide non-printable UI */
+  .no-print,
+  .scoresheet-footer,
+  .match-header button,
+  .scoreboard-bar select,
+  .team-table-header button,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Scoresheet: keep two-column grid, no overflow */
+  .scoresheet-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Scoreboard bar: compact in print */
+  .scoreboard-bar {
+    padding: 0.4rem 1rem !important;
+  }
+
+  /* Stat inputs: show value text, no spinner arrows */
+  input[type='number'] {
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+    border: 1px solid #CBD5E1 !important;
+    padding: 1px 2px !important;
+    font-size: 8pt !important;
+    width: 28px !important;
+    text-align: center !important;
+    background: transparent !important;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+  }
+
+  /* Team report page: 1 page A4 landscape, nothing clipped */
+  .team-report-page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Table styling for crisp print */
+  .stat-table {
+    width: 100% !important;
+    table-layout: auto !important;
+  }
+
+  .stat-table th,
+  .stat-table td {
+    padding: 3px 2px !important;
+    font-size: 8pt !important;
+    border: 1px solid #CBD5E1 !important;
+  }
+
+  /* Keep pastel stat cell tints on print */
+  .cell-pts { background-color: #E6F4EA !important; }
+  .cell-ast { background-color: #FFE8D6 !important; }
+  .cell-fls { background-color: #EDE7F6 !important; }
+  .cell-ft  { background-color: #FEF9C3 !important; }
+  .cell-fg  { background-color: #FEF9C3 !important; }
+  .cell-3p  { background-color: #FEF9C3 !important; }
+  .cell-stl { background-color: #E0F2FE !important; }
+  .cell-reb { background-color: #E0F2FE !important; }
+  .cell-to  { background-color: #E0F2FE !important; }
+
+  /* Donut SVG size adjustments for print */
+  svg {
+    max-width: 100% !important;
+  }
+}
